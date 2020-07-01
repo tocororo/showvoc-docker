@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  pmki:
+    image: art-uniroma2/pmki
+    ports:
+    - "1979:1979"
+    volumes:
+     - type: bind
+       source: ./pmki-stdata
+       target: /opt/pmki/data
+    links:
+    - pmki-graphdb
+    - development-vocbench3
+  pmki-graphdb:
+    image: ontotext/graphdb:9.3.1-se
+    ports:
+     - "127.0.0.1:7200:7200"
+    volumes:
+     - type: bind
+       source: ./pmki-gdbhome
+       target: /opt/graphdb/home
+  development-vocbench3:
+    image: art-uniroma2/vocbench3
+    ports:
+    - "1980:1979"
+    volumes:
+     - type: bind
+       source: ./development-stdata
+       target: /opt/vocbench3/data
+    links:
+    - development-graphdb
+  development-graphdb:
+    image: ontotext/graphdb:9.3.1-se
+    ports:
+     - "127.0.0.1:7201:7200"
+    volumes:
+     - type: bind
+       source: ./development-gdbhome
+       target: /opt/graphdb/home
