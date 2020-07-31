@@ -1,0 +1,3 @@
+[submodule "vocbench3-docker"]
+	path = vocbench3-docker
+	url = git@bitbucket.org:art-uniroma2/vocbench3-docker.git

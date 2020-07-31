@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8:alpine
 
-ENV pmki_version=1.0.0-SNAPSHOT
-ENV st_version=8.0-SNAPSHOT
+ENV pmki_version=1.0.0
+ENV st_version=8.0
 
 COPY pmki-${pmki_version}_full.zip /tmp
 RUN set -eux ; \

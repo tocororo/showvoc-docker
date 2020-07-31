@@ -21,7 +21,7 @@ Build an image from sources
 * copy the *full* distribution of PMKI, which can be found among the [downloads](https://bitbucket.org/art-uniroma2/pmki-portal/downloads/).
 * issue the following command
 
-  `docker build -t art-uniroma2/pmki:<version> .`
+  `docker build -t pmki:<version> .`
 
   where `<version>` is the version number (e.g. `1.0.0`)
 
@@ -30,7 +30,7 @@ Start a PMKI instance
 
 Executing the following command to start a new container.
 
-`docker run -p 1979:1979 --name pmki-instance-name -t art-uniroma2/pmki:tag`
+`docker run -p 1979:1979 --name pmki-instance-name -t pmki:tag`
 
 where *pmki-instance-name* is the name assigned to the newly created container, *tag* is the tag specifying the desired PMKI version.
 
@@ -53,11 +53,11 @@ The latter can be done in this manner:
 
 1. Create a directory for PMKI
 
-   `mkdir -p stdata`
+   `mkdir -p volumes/stdata`
 
 2. Start your `pmki` container like this:
 
-   `docker run -v ${PWD}/stdata:/opt/vocbench3/data -p 1979:1979 --name pmki-instance-name -t art-uniroma2/pnki:tag`
+   `docker run -v ${PWD}/volumes/stdata:/opt/vocbench3/data -p 1979:1979 --name pmki-instance-name -t pmki:tag`
 
 The container is executed as root
 ---------------------------------
@@ -74,18 +74,18 @@ Follow these instructions to create the deployment:
  * create the data directory for Semantic Turkey used by PMKI and VocBench, respectively
    
    ```
-   mkdir pmki-stdata
-   mkdir development-stdata
+   mkdir volumes/pmki-stdata
+   mkdir volumes/development-stdata
    ```
  * create the data directory for GraphDB. In fact, there will be two instances used by
    PMKI and VocBench 3, respectively
    
    ```
-   mkdir pmki-gdbhome
-   mkdir development-gdbhome
+   mkdir volumes/pmki-gdbhome
+   mkdir volumes/development-gdbhome
    ```
 
-* place the license for GraphDB SE under `pmki-gdbhome/conf` and `development-gdbhome/conf` in a file named `graphdb.license`
+* place the license for GraphDB SE under `volumes/pmki-gdbhome/conf` and `volumes/development-gdbhome/conf` in a file named `graphdb.license`
 
 * start the deployment in detached mode
 
