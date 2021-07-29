@@ -14,12 +14,12 @@ services:
     - showvoc-graphdb
     - development-vocbench3
   showvoc-graphdb:
-    image: graphdb-with-st-sails:9.1.1-se
+    image: graphdb-with-st-sails:9.8.1-se
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
         st_version: "10.0"
-        gdb_version: "9.1.1-se"
+        gdb_version: "9.8.1-se"
     ports:
      - "127.0.0.1:7200:7200"
     volumes:
@@ -39,12 +39,12 @@ services:
     links:
     - development-graphdb
   development-graphdb:
-    image: graphdb-with-st-sails:9.1.1-se
+    image: graphdb-with-st-sails:9.8.1-se
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
         st_version: "10.0"
-        gdb_version: "9.1.1-se"
+        gdb_version: "9.8.1-se"
     ports:
      - "127.0.0.1:7201:7200"
     volumes:
