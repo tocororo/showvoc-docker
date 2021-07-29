@@ -1,35 +1,35 @@
 version: '3.8'
 services:
-  pmki:
-    image: pmki:1.0.0
+  showvoc:
+    image: showvoc:1.0.0
     build:
       context: ./1.0.0
     ports:
     - "1979:1979"
     volumes:
      - type: bind
-       source: ./volumes/pmki-stdata
-       target: /opt/pmki/data
+       source: ./volumes/showvoc-stdata
+       target: /opt/showvoc/data
     links:
-    - pmki-graphdb
+    - showvoc-graphdb
     - development-vocbench3
-  pmki-graphdb:
+  showvoc-graphdb:
     image: graphdb-with-st-sails:9.1.1-se
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
-        st_version: "8.0"
+        st_version: "10.0"
         gdb_version: "9.1.1-se"
     ports:
      - "127.0.0.1:7200:7200"
     volumes:
      - type: bind
-       source: ./volumes/pmki-gdbhome
+       source: ./volumes/showvoc-gdbhome
        target: /opt/graphdb/home
   development-vocbench3:
-    image: vocbench3:8.0.0
+    image: vocbench3:10.0.0
     build:
-      context: ./vocbench3-docker/8.0.0
+      context: ./vocbench3-docker/10.0.0
     ports:
     - "1980:1979"
     volumes:
@@ -43,7 +43,7 @@ services:
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
-        st_version: "8.0"
+        st_version: "10.0"
         gdb_version: "9.1.1-se"
     ports:
      - "127.0.0.1:7201:7200"
