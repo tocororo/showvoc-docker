@@ -1,7 +1,7 @@
 Supported tags
 ==============
 
-Tags identify a specific release (i.e. version) of ShowVoc, while the tag `latest` is reference to the latest release (currently, `1.1.1`).
+Tags identify a specific release (i.e. version) of ShowVoc, while the tag `latest` is reference to the latest release (currently, `1.2.0`).
 
 What is ShowVoc?
 =============
@@ -23,7 +23,7 @@ Build an image from sources
 
   `docker build -t showvoc:<version> .`
 
-  where `<version>` is the version number (e.g. `1.1.1`)
+  where `<version>` is the version number (e.g. `1.2.0`)
 
 Start a ShowVoc instance
 ---------------------
