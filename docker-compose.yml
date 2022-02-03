@@ -1,9 +1,9 @@
 version: '3.8'
 services:
   showvoc:
-    image: showvoc:1.2.0
+    image: showvoc:1.2.1
     build:
-      context: ./1.2.0
+      context: ./1.2.1
     ports:
     - "1979:1979"
     volumes:
