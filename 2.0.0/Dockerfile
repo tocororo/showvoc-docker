@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8:alpine
 
-ENV showvoc_version=1.2.1
-ENV st_version=10.2.1
+ENV showvoc_version=2.0.0
+ENV st_version=11.0
 
 COPY showvoc-${showvoc_version}-full.zip /tmp
 RUN set -eux ; \

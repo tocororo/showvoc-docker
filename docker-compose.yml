@@ -1,9 +1,9 @@
 version: '3.8'
 services:
   showvoc:
-    image: showvoc:1.2.1
+    image: showvoc:2.0.0
     build:
-      context: ./1.2.1
+      context: ./2.0.0
     ports:
     - "1979:1979"
     volumes:
@@ -18,7 +18,7 @@ services:
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
-        st_version: "10.2.1"
+        st_version: "11.0"
         gdb_version: "9.8.1-se"
     ports:
      - "127.0.0.1:7200:7200"
@@ -27,9 +27,9 @@ services:
        source: ./volumes/showvoc-gdbhome
        target: /opt/graphdb/home
   development-vocbench3:
-    image: vocbench3:10.0.0
+    image: vocbench3:11.0.0
     build:
-      context: ./vocbench3-docker/10.2.1
+      context: ./vocbench3-docker/11.0.0
     ports:
     - "1980:1979"
     volumes:
@@ -43,7 +43,7 @@ services:
     build:
       context: ./vocbench3-docker/helpers/graphdb-with-st-sails
       args:
-        st_version: "10.2.1"
+        st_version: "11.0"
         gdb_version: "9.8.1-se"
     ports:
      - "127.0.0.1:7201:7200"
